@@ -8,6 +8,9 @@ let page = 1;
 const likeButton = document.querySelector('.like-button');
 async function searchImage(){
     keyword = searchBox.value;
+    if(keyword === ' '){
+        alert('please enter a keyword to search')
+    }
     const url = `https://api.unsplash.com/search/collections?page=${page}&query=${keyword}&client_id=${accessKey}&per_page=12`;
     const response =  await fetch(url);
     const data = await response.json();
